@@ -1,6 +1,5 @@
 <script>
 import { store } from '../store.js';
-
 import CardItem from './CardItem.vue';
 
 export default {
@@ -21,7 +20,7 @@ export default {
 </script>
 
 <template>
-    
+
     <div class="cards-container">
         
         <div class="founded-cards">
@@ -44,9 +43,19 @@ export default {
 @use '../styles/variables' as *;
 
 .cards-container {
+    padding: 80px 0;
     margin: 0 auto;
 
     width: 1000px;
+
+    .founded-cards{
+        padding: 25px 15px;
+        
+        font-weight: bold;
+
+        color: white;
+        background-color: #212529;
+    }
 
     ul{
         display: flex;
