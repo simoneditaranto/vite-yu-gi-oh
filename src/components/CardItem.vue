@@ -1,8 +1,11 @@
 <script>
-// importare l'api
 
 export default {
     name: 'CardItem',
+
+    props: {
+        card: Object,
+    },    
 }
 
 </script>
@@ -11,16 +14,16 @@ export default {
 
     <li class="card">
         <div class="card-image">
-            <img src="https://images.ygoprodeck.com/images/cards_small/34541863.jpg" alt="">
+            <img :src="card.card_images[0].image_url_small" :alt="card.name">
         </div>
 
         <div class="card-info">
             <div class="card-name">
-                "a" cell breeding device
+                {{ card.name }}
             </div>
 
             <div class="card-type">
-                Alien
+                {{ card.archetype }}
             </div>
         </div>
 

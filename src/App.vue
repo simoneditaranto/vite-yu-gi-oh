@@ -26,6 +26,7 @@ export default {
     .then(res => {
       this.store.cards = res.data.data;
       // console.log(this.store.cards)
+      // console.log(this.store.cards[5].card_images[0].image_url_small);
       // test
     })
 

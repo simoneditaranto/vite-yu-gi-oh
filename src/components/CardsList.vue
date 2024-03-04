@@ -29,16 +29,11 @@ export default {
         </div>
 
         <ul>
-            <CardItem></CardItem>
-            <CardItem></CardItem>
-            <CardItem></CardItem>
-            <CardItem></CardItem>
-            <CardItem></CardItem>
-            <CardItem></CardItem>
-            <CardItem></CardItem>
-            <CardItem></CardItem>
-
-
+            <CardItem
+                v-for="currentCard in store.cards"
+                :card="currentCard"
+            >
+            </CardItem>
         </ul>        
 
     </div>
