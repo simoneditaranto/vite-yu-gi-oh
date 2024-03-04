@@ -5,6 +5,9 @@ import axios from 'axios';
 // importo lo store
 import { store } from './store.js';
 
+import AppCardsContainer from './components/AppCardsContainer.vue';
+import AppHeader from './components/AppHeader.vue';
+
 export default {
 
   data() {
@@ -21,14 +24,16 @@ export default {
 
     axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
     .then(res => {
-      this.store.cards = res.data;
-      console.log(this.store)
+      this.store.cards = res.data.data;
+      // console.log(this.store.cards)
+      // test
     })
 
   },
 
   components: {
-
+    AppCardsContainer,
+    AppHeader,
   },
 
 
@@ -37,7 +42,11 @@ export default {
 </script>
 
 <template>
-  <h1>Yu-gi-oh API</h1>
+  
+  <AppHeader></AppHeader>
+
+  <!-- <AppCardsContainer></AppCardsContainer> -->
+
 </template>
 
 <style>
