@@ -1,13 +1,18 @@
 <script>
-import { store } from '../store.js';
+import CardsList from './CardsList.vue';
 
 export default {
     name: 'AppCardsContainer',
 
     data() {
         return {
-            store,
+           
+
         }
+    },
+
+    components: {
+        CardsList,
     }
 }
 
@@ -15,15 +20,22 @@ export default {
 
 <template>
     
-    <p>Elementi in pagina: {{ store.cards.length }}</p>
-    <ul>
-        <li v-for="currentCard in store.cards">
-            {{ currentCard.name }}
-        </li>
-    </ul>
+    <div class="container">
+
+        <CardsList></CardsList>
+        
+    </div>
 
 </template>
 
 <style lang="scss">
+
+.container{
+    width: 1200px;
+
+    margin: 0 auto;
+
+    background-color: white;
+}
 
 </style>

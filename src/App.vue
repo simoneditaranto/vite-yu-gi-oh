@@ -5,8 +5,8 @@ import axios from 'axios';
 // importo lo store
 import { store } from './store.js';
 
-import AppCardsContainer from './components/AppCardsContainer.vue';
 import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
 
 export default {
 
@@ -32,8 +32,8 @@ export default {
   },
 
   components: {
-    AppCardsContainer,
     AppHeader,
+    AppMain,
   },
 
 
@@ -45,7 +45,7 @@ export default {
   
   <AppHeader></AppHeader>
 
-  <!-- <AppCardsContainer></AppCardsContainer> -->
+  <AppMain></AppMain>
 
 </template>
 
