@@ -1,6 +1,7 @@
 <script>
 import { store } from '../store.js';
 import CardItem from './CardItem.vue';
+import NextPageItem from './NextPageItem.vue';
 
 export default {
     name: 'CardsList',
@@ -13,6 +14,7 @@ export default {
 
     components: {
         CardItem,
+        NextPageItem,
     },
 
 }
@@ -38,7 +40,9 @@ export default {
                 :card="currentCard"
             >
             </CardItem>
-        </ul>        
+        </ul>
+        
+        <NextPageItem></NextPageItem>
 
     </div>
 

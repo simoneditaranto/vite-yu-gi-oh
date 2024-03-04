@@ -22,7 +22,7 @@ export default {
   // spazio di codice che viene eseguito appena l'applicazione viene lanciata
   created() {
 
-    axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=1000&offset=0')
+    axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0')
     .then(res => {
       this.store.cards = res.data.data;
       
