@@ -7,6 +7,7 @@ import { store } from './store.js';
 
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+import SelectItem from './components/SelectItem.vue'
 
 export default {
 
@@ -37,6 +38,7 @@ export default {
   components: {
     AppHeader,
     AppMain,
+    SelectItem,
   },
 
 
@@ -48,6 +50,8 @@ export default {
   
   <AppHeader></AppHeader>
 
+  <SelectItem></SelectItem>
+  
   <AppMain></AppMain>
 
 </template>
