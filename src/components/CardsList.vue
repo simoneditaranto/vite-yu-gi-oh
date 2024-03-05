@@ -42,7 +42,7 @@ export default {
             </CardItem>
         </ul>
         
-        <NextPageItem></NextPageItem>
+        <!-- <NextPageItem></NextPageItem> -->
 
     </div>
 

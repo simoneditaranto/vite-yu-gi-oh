@@ -7,4 +7,7 @@ export const store = reactive({
 
     isLoading: true,
 
+    // salvo in una variabile il valore della select
+    userChoice: '',
+
 });

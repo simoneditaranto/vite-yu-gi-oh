@@ -11,35 +11,49 @@ import SelectItem from './components/SelectItem.vue'
 
 export default {
 
-  data() {
-    return {
-      
-      // dichiaro lo store, utilizzabile nel mio componente
-      store,
+data() {
+  return {
+    
+    // dichiaro lo store, utilizzabile nel mio componente
+    store,
 
-    }
-  },
+  }
+},
 
-  // spazio di codice che viene eseguito appena l'applicazione viene lanciata
-  created() {
+// spazio di codice che viene eseguito appena l'applicazione viene lanciata
+created() {
 
-    axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0')
+  axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0')
+  .then(res => {
+    this.store.cards = res.data.data;
+    
+    // console.log(store.isLoading); // test
+    store.isLoading = false;
+    // console.log(store.isLoading); // test
+
+  })
+
+},
+
+components: {
+  AppHeader,
+  AppMain,
+  SelectItem,
+},
+
+methods: {
+
+  // definisco il metodo che cerca le carte in base al loro "archetype"
+  searchCardsFromArchetype() {
+
+    axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&archetype=${this.store.userChoice}`)
     .then(res => {
       this.store.cards = res.data.data;
-      
-      // console.log(store.isLoading); // test
-      store.isLoading = false;
-      // console.log(store.isLoading); // test
+    });
 
-    })
+  }
 
-  },
-
-  components: {
-    AppHeader,
-    AppMain,
-    SelectItem,
-  },
+}
 
 
 }
@@ -50,7 +64,7 @@ export default {
   
   <AppHeader></AppHeader>
 
-  <SelectItem></SelectItem>
+  <SelectItem @search="searchCardsFromArchetype()"></SelectItem>
   
   <AppMain></AppMain>
 

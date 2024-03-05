@@ -1,12 +1,16 @@
 <script>
 import axios from 'axios';
 
+import { store } from '../store.js';
+
 export default {
     name: 'SelectItem',
 
     data() {
         return {
             archetypesList: [],
+
+            store,
         }
     },
 
@@ -26,16 +30,23 @@ export default {
 </script>
 
 <template>
-
+    
     <div class="select">
-        <select name="cards-list" id="cards-list">
+        <select 
+            name="cards-list" 
+            id="cards-list" 
+            v-model="this.store.userChoice"
+        >
+            <option value="" disabled selected>Archetype</option>
             <option 
                 v-for="currentArchetype in archetypesList"
                 :value="currentArchetype.archetype_name"
+                
             >
                 {{ currentArchetype.archetype_name }}
             </option>
         </select>
+        <button @click="$emit('search')">Cerca</button>
     </div>
 
 </template>
@@ -43,7 +54,9 @@ export default {
 <style lang="scss">
 
 .select{
-        padding: 20px 0;
+        display: flex;
+        gap: 10px;
+
         margin: 0 auto;
 
         width: 80%;
@@ -54,10 +67,15 @@ export default {
             width: 15%;
 
             color: black;
-            border-color: white;
+            border-color: black;
             border-radius: 6px;
             
             background-color: white;
+
+        }
+
+        button{
+            padding: 0 10px;
         }
 }
 
