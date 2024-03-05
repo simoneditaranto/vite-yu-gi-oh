@@ -32,12 +32,13 @@ export default {
 <template>
     
     <div class="select">
+        <label for="">Select from archetype:</label>
         <select 
             name="cards-list" 
             id="cards-list" 
             v-model="this.store.userChoice"
         >
-            <option value="" disabled selected>Archetype</option>
+            <option value="all">Tutti</option>
             <option 
                 v-for="currentArchetype in archetypesList"
                 :value="currentArchetype.archetype_name"
@@ -52,15 +53,17 @@ export default {
 </template>
 
 <style lang="scss">
+@use '../styles/variables' as *;
 
 .select{
         display: flex;
+        justify-content: center;
+        align-items: center;
         gap: 10px;
 
-        margin: 0 auto;
+        padding: 30px 0;
 
-        width: 80%;
-
+        background-color: $primaryColor;
         select{
             padding: 12px 5px;
 
@@ -76,6 +79,7 @@ export default {
 
         button{
             padding: 0 10px;
+            align-self: stretch;
         }
 }
 
