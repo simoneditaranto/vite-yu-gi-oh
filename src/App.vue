@@ -26,7 +26,8 @@ created() {
   axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0')
   .then(res => {
     this.store.cards = res.data.data;
-    
+    this.store.cardsFounded = res.data.meta.total_rows;
+
     // console.log(store.isLoading); // test
     store.isLoading = false;
     // console.log(store.isLoading); // test
@@ -49,6 +50,7 @@ methods: {
     axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&archetype=${this.store.userChoice}`)
     .then(res => {
       this.store.cards = res.data.data;
+      this.store.cardsFounded = res.data.meta.total_rows;
     });
 
   }

@@ -10,4 +10,7 @@ export const store = reactive({
     // salvo in una variabile il valore della select
     userChoice: '',
 
+    // salvo in una variabile il numero di cards trovate in base alla ricerca
+    cardsFounded: 0,
+
 });

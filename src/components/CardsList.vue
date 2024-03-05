@@ -30,8 +30,7 @@ export default {
     <div v-else class="cards-container">
         
         <div class="founded-cards">
-            Found {{ store.cards.length }} cards
-            {{ store.isLoading }}
+            Found {{ store.cardsFounded }} cards
         </div>
 
         <ul>
